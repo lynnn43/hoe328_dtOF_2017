@@ -10,6 +10,7 @@ void ofApp::setup(){
         
         myBalloon[i].setup(randomX, randomY, size);
     }
+
 }
 
 //--------------------------------------------------------------
@@ -17,11 +18,24 @@ void ofApp::update(){
     for(int i=0; i<myBalloons.size(); i++){
         myBalloons[i].update();
     }
-   
+    
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
+    ofSetColor(255, 0, 0);
+    ofDrawRectangle(350,450, 100, 100);
+    
+    
+    ofSetColor(255,219,172);
+    ofDrawSphere(400,400, 60);
+    
+    ofSetColor(0,0,0);
+    ofDrawSphere(380,380,10);
+    
+    ofSetColor(0,0,0);
+    ofDrawSphere(420,380,10);
+    
     for (int i = 0 ; i<myBalloons.size(); i++) {
         myBalloons[i].draw();
     }
@@ -48,6 +62,7 @@ void ofApp::mouseDragged(int x, int y, int button){
     tempBalloons.setup(x,y, ofRandom(10,40));	// setup its initial state
     myBalloons.push_back(tempBalloons);				// add it to the vector
 }
+
 
 //--------------------------------------------------------------
 void ofApp::mousePressed(int x, int y, int button){

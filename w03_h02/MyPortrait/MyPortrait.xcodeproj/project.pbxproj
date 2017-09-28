@@ -9,7 +9,7 @@
 		<string>46</string>
 		<key>objects</key>
 		<dict>
-			<key>7FA78DBB584B8BCB98255C9C</key>
+			<key>B1E96E0334428F257881625A</key>
 			<dict>
 				<key>explicitFileType</key>
 				<string>sourcecode.c.h</string>
@@ -18,9 +18,9 @@
 				<key>isa</key>
 				<string>PBXFileReference</string>
 				<key>name</key>
-				<string>Balloon.hpp</string>
+				<string>Balloon.h</string>
 				<key>path</key>
-				<string>src/Balloon.hpp</string>
+				<string>src/Balloon.h</string>
 				<key>sourceTree</key>
 				<string>SOURCE_ROOT</string>
 			</dict>
@@ -368,7 +368,7 @@
 				<key>isa</key>
 				<string>PBXNativeTarget</string>
 				<key>name</key>
-				<string>BallonClass</string>
+				<string>MyPortrait</string>
 				<key>productName</key>
 				<string>myOFApp</string>
 				<key>productReference</key>
@@ -385,7 +385,7 @@
 				<key>isa</key>
 				<string>PBXFileReference</string>
 				<key>path</key>
-				<string>BallonClassDebug.app</string>
+				<string>MyPortraitDebug.app</string>
 				<key>sourceTree</key>
 				<string>BUILT_PRODUCTS_DIR</string>
 			</dict>
@@ -507,7 +507,7 @@
 					<string>E4B69E1E0A3A1BDC003C02F2</string>
 					<string>E4B69E1F0A3A1BDC003C02F2</string>
 					<string>107126D027164F7A9358F50F</string>
-					<string>7FA78DBB584B8BCB98255C9C</string>
+					<string>B1E96E0334428F257881625A</string>
 				</array>
 				<key>isa</key>
 				<string>PBXGroup</string>

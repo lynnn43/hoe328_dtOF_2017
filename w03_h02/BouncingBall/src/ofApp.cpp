@@ -2,29 +2,58 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
-    for(int i=0; i<NBALLOONS; i++){
-        
-        int size = (i+1) * 10; // defining the size of each ball based on its place in the array
-        int randomX = ofRandom( 0, ofGetWidth() ); //generate a random value bigger than 0 and smaller than our application screen width
-        int randomY = ofRandom( 0, ofGetHeight() ); //generate a random value bigger than 0 and smaller than our application screen height
-        
-        myBalloon[i].setup(randomX, randomY, size);
-    }
+
+	ofBackground(0);
+    
+    gravity = ofVec2f(0,0); // start with no gravity force
+    
+    ofSetCircleResolution(100); // prettier circles
 }
+
+
+
 
 //--------------------------------------------------------------
 void ofApp::update(){
-    for(int i=0; i<myBalloons.size(); i++){
-        myBalloons[i].update();
-    }
-   
+    
+    // mouse position alters gravity
+    gravity.x = ofMap(ofGetMouseX(), 0, ofGetWidth(), -1, 1);
+    gravity.y = ofMap(ofGetMouseY(), 0, ofGetHeight(), -1, 1);
+
+
+	ball1.update(gravity); // apply gravity to balls
+	ball2.update(gravity);
+	ball3.update(gravity);
+    
+    ofVec2f mouse;
+    mouse.x = ofGetMouseX();
+    mouse.y = ofGetMouseY();
+    
+    float pct = .05; // every frame move ball 5% towards the mouse
+    
+    ball = ball * (1.-pct) + mouse * pct;
+    
+    
+    // change the ball brightness with distance
+    
+    float dist = mouse.distance(ball);
+    
+    // as distance increases, brightness increases:
+    brightness = ofMap(dist, 0, 500, 50, 255);
+    
+
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-    for (int i = 0 ; i<myBalloons.size(); i++) {
-        myBalloons[i].draw();
-    }
+
+	ball1.draw();
+	ball2.draw();
+	ball3.draw();
+    ofSetColor(brightness);
+    ofDrawCircle(ball, 50);
+
+
 }
 
 //--------------------------------------------------------------
@@ -44,9 +73,7 @@ void ofApp::mouseMoved(int x, int y ){
 
 //--------------------------------------------------------------
 void ofApp::mouseDragged(int x, int y, int button){
-    Balloon tempBalloons;							// create the ball object
-    tempBalloons.setup(x,y, ofRandom(10,40));	// setup its initial state
-    myBalloons.push_back(tempBalloons);				// add it to the vector
+
 }
 
 //--------------------------------------------------------------
